@@ -1,0 +1,4 @@
+*.env*
+env/
+*pycache*
+keywords_agent.py
