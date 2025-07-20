@@ -39,6 +39,7 @@ def summarize(provider, content:str):
     - Include any reactions, implications, or potential consequences
     - Be written in a clear, neutral tone, avoiding opinion or exaggeration
     - Be self-contained, it should make sense without needing to read the original articles
+    - Use markdown formatting for readability, including headings and bullet points where appropriate
 
     Use 1-3 concise paragraphs, depending on the complexity of the topic.
     The content of the search results is below:
@@ -106,4 +107,4 @@ if prompt := st.chat_input("Ask for a news summary (e.g. 'Apple AI news')"):
                 response = f"Error: {e}"
         st.markdown(response)
                 
-    st.session_state.messages.append({"role": "assistant", "content": "response"})
+    st.session_state.messages.append({"role": "assistant", "content": response})
