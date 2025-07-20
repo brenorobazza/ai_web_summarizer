@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a Python-based web scraping and news summarization tool. It automates the process of searching for news articles, scraping their content, and generating concise summaries using either OpenAI or Ollama (Mistral) language models. The tool is modular, allowing for easy extension and customization.
+This project is a Python-based web scraping and summarization tool. It automates the process of searching for news articles or other type of webpages, scraping their content and generating concise summaries using either OpenAI or Ollama (Mistral - Local) language models. The tool is modular, allowing for easy extension and customization.
 
 ## Features
 - **Automated Web Search:** Uses the Brave Search API to find relevant website pages based on a user query.
@@ -30,7 +30,7 @@ This project is a Python-based web scraping and news summarization tool. It auto
    - Add your API keys as follows:
      ```env
      BRAVE_API_KEY="your_brave_api_key_here"
-     OPEN_API_KEY="your_openai_api_key_here"
+     OPENAI_API_KEY="your_openai_api_key_here"
      ```
    - These keys are required for the Brave Search API and OpenAI summarization provider.
 
