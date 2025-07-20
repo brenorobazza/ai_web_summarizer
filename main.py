@@ -1,6 +1,6 @@
 from Scraper import Scraper
 from Brave import Brave
-from Summarizer import Summarizer
+from Agent import Agent
 
 import json
 import sys
@@ -19,7 +19,6 @@ class bcolors:
 def main(search_query, provider, n=4):
     
     brave = Brave()
-    summarizer = Summarizer(provider)
     results = brave.get_search_results(search_query)
     scraper = Scraper()
     # Print the results
@@ -35,11 +34,21 @@ def main(search_query, provider, n=4):
     print("\n> Summarizing content...")
     
     instructions = """
-    You are an expert news summarizer that examines the content of search results and provides a concise summary.
-    Your summary should highlight the key aspects of the content, including main events, people involved, and any significant outcomes.
-    This is the content of the search results:
+    You are an expert news summarizer tasked with analyzing the content of search results and producing a detailed and context-rich summary.
+    Your summary must:
+
+    - Clearly explain the main event or topic, including what happened, where and when
+    - Identify the key people, organizations or countries involved
+    - Describe any relevant background context that helps the reader understand why this event matters
+    - Include any reactions, implications, or potential consequences
+    - Be written in a clear, neutral tone, avoiding opinion or exaggeration
+    - Be self-contained, it should make sense without needing to read the original articles
+
+    Use 1-3 concise paragraphs, depending on the complexity of the topic.
+    The content of the search results is below:
     """
-    summary = summarizer.summarize_text("\n".join(all_content), instructions=instructions)
+    summarizer = Agent(provider, instructions=instructions)
+    summary = summarizer.invoke(prompt="\n".join(all_content))
     return summary
     
 if __name__ == "__main__":
