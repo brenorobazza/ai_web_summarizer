@@ -67,7 +67,3 @@ Where `<provider>` is either `openai` or `ollama`, and `<search_query>` is your 
 - The `.env` file is included in `.gitignore` and should **not** be committed to version control.
 - You can switch between OpenAI and Ollama summarization by changing the provider in the Streamlit sidebar.
 - The summarizer will print a concise summary of the top search results for your query in the web interface. 
-
-## To be fixed
-- A conversation follow-up is not working properly. The chat must be able to handle different workflows
-- A summary does to answer the user prompt, only summarizes what was seen in the scraped webpages 
